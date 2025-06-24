@@ -14,6 +14,8 @@ return new class extends Migration
             $table->foreignId('petugas_id')->constrained('mutia_petugas')->onDelete('cascade');
             $table->foreignId('spp_id')->constrained('mutia_spp')->onDelete('cascade');
             $table->date('tanggal_bayar');
+            $table->string('bulan_dibayar'); // ✅ Tambahan kolom
+            $table->string('tahun_dibayar'); // ✅ Tambahan kolom
             $table->integer('jumlah_bayar');
             $table->timestamps();
         });

@@ -9,10 +9,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mutia_spp', function (Blueprint $table) {
-            $table->id();
-            $table->string('tahun'); // contoh: 2024/2025
-            $table->integer('nominal');
-            $table->timestamps();
+            $table->id(); // PK auto-increment (unsignedBigInteger)
+            $table->year('tahun'); // Tahun ajaran
+            $table->integer('nominal'); // Nominal SPP
+            $table->timestamps(); // created_at & updated_at
         });
     }
 

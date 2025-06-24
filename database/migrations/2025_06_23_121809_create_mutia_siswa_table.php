@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('mutia_siswa', function (Blueprint $table) {
@@ -17,13 +14,18 @@ return new class extends Migration
             $table->string('nama');
             $table->string('kelas');
             $table->text('alamat');
+            $table->unsignedBigInteger('spp_id'); // FK ke mutia_spp
+
             $table->timestamps();
+
+            // Foreign Key
+            $table->foreign('spp_id')
+                ->references('id')
+                ->on('mutia_spp')
+                ->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('mutia_siswa');
